@@ -1,14 +1,23 @@
+/**** VARIABLES
+*******************************************************************************/
 @pageWidth: 900px;
 @rightColWidth: @pageWidth * 0.75;
 @leftColWidth: @pageWidth - @rightColWidth;
 
+@font-small: 1.1em;
+@font-normal: 1.2em;
+
 @color: #525252;
 
-@box-bgcolor: #CAC9C9;
+/*@box-bgcolor: #CAC9C9;*/
+@box-bgcolor: rgba(255, 255, 255, 0.6);
 
 @menu-selected-color: #FFF;
 @menu-selected-bgcolor: rgba(51, 51, 51, .8);
 
+
+/**** FUNCTIONS
+*******************************************************************************/
 .rounded-corners (@radius: 3px) {
   border-radius: @radius;
   -webkit-border-radius: @radius;
@@ -16,14 +25,52 @@
 }
 
 .text-effect (@color: #FFF) {
-    text-shadow: 0px 2px 3px @color;
+    text-shadow: 0px 1px 1px @color;
 }
 
+.box-shadow () {
+    -webkit-box-shadow: 0px 0px 11px -9px #000000;
+    -moz-box-shadow: 0px 0px 11px -9px #000000;
+}
+
+button {
+    display: inline-block;
+    zoom: 1;
+    vertical-align: baseline;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+/*    font: 14px/100% Arial, Helvetica, sans-serif;*/
+    padding: 5px 10px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    color: #606060;
+    border: solid 1px #B7B7B7;
+    background: white;
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#EDEDED));
+    background: -moz-linear-gradient(top, white, #EDEDED);
+/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');*/
+    &:hover {
+        background: #ededed;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+        background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+/*        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');*/
+    }
+}
+
+/**** COMMON
+*******************************************************************************/
 body {
     margin: 0;
     padding: 0;
     color: @color;
-/*    overflow: hidden;*/
     font-family: 'Abel', sans-serif;
 }
 
@@ -31,11 +78,13 @@ body {
     clear: both;
 }
 
+
+/**** MENU
+*******************************************************************************/
 .menu {
     margin: 0 auto;
     width: @pageWidth;
     .menu-wrap {
-/*        background: rgba(0, 0, 0, 0.1);*/
         width: @leftColWidth;
         height: 100%;
         position: fixed;
@@ -43,21 +92,30 @@ body {
         z-index: 1;
 
         .logo {
-            padding: 50px 0 70px 35px;
+            padding: 50px 0 170px 35px;
         }
 
         .links {
             margin: 0 20px;
             .link {
-/*                .rounded-corners;*/
                 padding: 5px 5px 5px 20px;
+                border-left: 1px solid transparent;
+                border-bottom: 1px solid transparent;
+                a {
+                    .text-effect;
+                    color: @color;
+                    font-size: @font-small;
+                    text-decoration: none;
+                }
                 &.selected {
                     background: @menu-selected-bgcolor;
-                    a {color: @menu-selected-color;}
-                }
-                a {
-                    color: @color;
-                    text-decoration: none;
+                    border-left: 1px solid #EFEFEF;
+                    border-bottom: 1px solid #EFEFEF;
+                    a {
+                        color: @menu-selected-color;
+                        .text-effect(@menu-selected-bgcolor);
+/*                        text-shadow: 0px -1px 1px #000000;*/
+                    }
                 }
             }
         }
@@ -65,6 +123,9 @@ body {
     }
 }
 
+
+/**** CONTENT
+*******************************************************************************/
 .container {
     width: 100%;
     height: 100%;
@@ -84,32 +145,67 @@ body {
 
             .content-wrap {
                 float: right;
-                padding-top: 30px;
+                padding-top: 10px;
                 width: @rightColWidth;
+
+                form {
+                    .rounded-corners;
+                    .box-shadow;
+                    padding: 20px 20px 10px 20px;
+                    background: @box-bgcolor;
+                    div {
+                        padding: 10px;
+                        label {
+                            width: 80px;
+                            font-size: @font-normal;
+                            display: inline-block;
+                        }
+                        input {
+                            width: 300px;
+                        }
+                        input, textarea {
+                            padding: 5px 2px;
+                            .rounded-corners;
+                            font-size: @font-normal;
+                            border: 1px solid #AAA;
+                        }
+                        textarea {
+                            width: 85%;
+                            height: 200px;
+                        }
+                        span {
+                            color: #AAA;
+                            padding: 10px;
+                        }
+                    }
+                    .footer {
+                        text-align: right;
+                    }
+                }
 
                 h2 {
                     margin: 0;
-                    font-size: 3em;
+                    font-size: 4em;
                     .text-effect;
                     font-family: 'Yanone Kaffeesatz', sans-serif;
                 }
 
                 .subtitle {
+                    color: #636363;
+                    font-size: @font-small;
                     font-style: italic;
-                    margin-bottom: 36px;
+                    margin-bottom: 25px;
                     font-family: 'Volkhov', serif;
                 }
 
                 .carousel {
-/*                    width: @rightColWidth;*/
-/*                    height: 300px;*/
                     height: 323px;
                     width: 640px;
                     .rounded-corners;
-                    background: white;
+                    .box-shadow;
+                    background: @box-bgcolor;
                     padding: 20px 20px 10px 20px;
                     .pagination {
-/*                        padding-top: 10px !important;*/
                         li {
                             width: 12px;
                             height: 12px;
@@ -117,17 +213,17 @@ body {
                             font-size: 2px;
                             background: black;
                             margin-left: 5px !important;
+/*                            .box-shadow;*/
                             .rounded-corners(10px);
                             &.current {
-                                color: grey;
-                                background: grey;
+                                color: @color;
+                                background: @color;
                             }
                         }
                     }
                 }
 
                 .boxes {
-/*                    width: 100%;*/
                     width: @rightColWidth + 25px;
                     left: -10px;
                     position: relative;
@@ -138,13 +234,29 @@ body {
                     td {
                         padding: 10px;
                         .rounded-corners;
-                        border: 1px solid white;
+                        .box-shadow;
+/*                        border: 1px solid white;*/
                         background: @box-bgcolor;
                         h3 {
                             margin: 5px 0;
                             text-align: center;
                         }
-                        p {text-align: justify;}
+                        p {
+                            font-size: @font-small;
+                            text-align: justify;
+                        }
+                        
+                        .link {
+                            text-align: right;
+                            a {
+                                color: @color;
+                                text-decoration: none;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+
                     }
                 }
 
@@ -155,12 +267,12 @@ body {
 }
 
 
-#page1 {
+#page1, #page2 {
     background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
-#page2 {
+/*#page2 {
     background: #DDDDDD;
-}
+}*/
 #page3 {
     background: #CCCCCC;
 }
