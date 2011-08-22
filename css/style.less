@@ -1,0 +1,172 @@
+@pageWidth: 900px;
+@rightColWidth: @pageWidth * 0.75;
+@leftColWidth: @pageWidth - @rightColWidth;
+
+@color: #525252;
+
+@box-bgcolor: #CAC9C9;
+
+@menu-selected-color: #FFF;
+@menu-selected-bgcolor: rgba(51, 51, 51, .8);
+
+.rounded-corners (@radius: 3px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.text-effect (@color: #FFF) {
+    text-shadow: 0px 2px 3px @color;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: @color;
+/*    overflow: hidden;*/
+    font-family: 'Abel', sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+
+.menu {
+    margin: 0 auto;
+    width: @pageWidth;
+    .menu-wrap {
+/*        background: rgba(0, 0, 0, 0.1);*/
+        width: @leftColWidth;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+
+        .logo {
+            padding: 50px 0 70px 35px;
+        }
+
+        .links {
+            margin: 0 20px;
+            .link {
+/*                .rounded-corners;*/
+                padding: 5px 5px 5px 20px;
+                &.selected {
+                    background: @menu-selected-bgcolor;
+                    a {color: @menu-selected-color;}
+                }
+                a {
+                    color: @color;
+                    text-decoration: none;
+                }
+            }
+        }
+
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+
+    .page {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+
+        .content {
+            margin: 0 auto;
+            width: @pageWidth;
+
+            .content-wrap {
+                float: right;
+                padding-top: 30px;
+                width: @rightColWidth;
+
+                h2 {
+                    margin: 0;
+                    font-size: 3em;
+                    .text-effect;
+                    font-family: 'Yanone Kaffeesatz', sans-serif;
+                }
+
+                .subtitle {
+                    font-style: italic;
+                    margin-bottom: 36px;
+                    font-family: 'Volkhov', serif;
+                }
+
+                .carousel {
+/*                    width: @rightColWidth;*/
+/*                    height: 300px;*/
+                    height: 323px;
+                    width: 640px;
+                    .rounded-corners;
+                    background: white;
+                    padding: 20px 20px 10px 20px;
+                    .pagination {
+/*                        padding-top: 10px !important;*/
+                        li {
+                            width: 12px;
+                            height: 12px;
+                            color: black;
+                            font-size: 2px;
+                            background: black;
+                            margin-left: 5px !important;
+                            .rounded-corners(10px);
+                            &.current {
+                                color: grey;
+                                background: grey;
+                            }
+                        }
+                    }
+                }
+
+                .boxes {
+/*                    width: 100%;*/
+                    width: @rightColWidth + 25px;
+                    left: -10px;
+                    position: relative;
+                    margin: 20px 0;
+                    table-layout: fixed;
+                    border-spacing: 10px 0;
+                    border-collapse: separate;
+                    td {
+                        padding: 10px;
+                        .rounded-corners;
+                        border: 1px solid white;
+                        background: @box-bgcolor;
+                        h3 {
+                            margin: 5px 0;
+                            text-align: center;
+                        }
+                        p {text-align: justify;}
+                    }
+                }
+
+            }
+
+        }
+    }
+}
+
+
+#page1 {
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+}
+#page2 {
+    background: #DDDDDD;
+}
+#page3 {
+    background: #CCCCCC;
+}
+#page4 {
+    background: #BBBBBB;
+}
+#page5 {
+    background: #AAAAAA;
+}

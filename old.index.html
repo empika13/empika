@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet/less" type="text/css" href="style.less">
+        <script type="text/javascript" charset="utf-8" src="less.js"></script>
+        <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="slider.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                window.f = new flux.slider('#slider', {
+                    // pagination: true
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="left"></div>
+        <div class="right">
+            <div class="section">
+                <div id="slider" class="carousel">
+                    <img src="http://www.sptechs.com/pub/_animals/Animals-00008.jpg" />
+                    <img width="640px" height="480px" src="http://wallpaper.wallpedia.org/wallpapers/15/Iguana_-_home_animals.jpg" />
+                    <img width="640px" height="480px" src="http://www.milanlibrary.org/Portals/2/Animals.jpg" />
+                    <img width="640px" height="480px" src="http://worldanimalfoundation.homestead.com/000802_c824_0023_csls.jpg" />
+                    <img width="640px" height="480px" src="http://images2.layoutsparks.com/1/138244/white-tigers-fierce-animals.jpg" />
+                    <img width="640px" height="480px" src="http://www.deshow.net/d/file/animal/2009-01/motherly-love-animals-370-28.jpg" />
+                    <img width="640px" height="480px" src="http://www.animals-zone.com/wp-content/uploads/2010/02/Cheetah-1.jpg" />
+                </div>
+            </div>
+            <div class="section"></div>
+            <div class="section"></div>
+            <div class="section"></div>
+            <div class="section"></div>
+        </div>
+    </body>
+</html>
