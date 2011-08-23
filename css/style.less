@@ -8,8 +8,9 @@
 @font-normal: 1.2em;
 
 @color: #525252;
+@error-color: darkred;
+@success-color: darkgreen;
 
-/*@box-bgcolor: #CAC9C9;*/
 @box-bgcolor: rgba(255, 255, 255, 0.6);
 
 @menu-selected-color: #FFF;
@@ -33,21 +34,32 @@
     -moz-box-shadow: 0px 0px 11px -9px #000000;
 }
 
+
+/**** COMMON
+*******************************************************************************/
+body {
+    margin: 0;
+    padding: 0;
+    color: @color;
+    font-family: 'Abel', sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+
 button {
     display: inline-block;
     zoom: 1;
     vertical-align: baseline;
-    margin: 0 2px;
+/*    margin: 0 2px;*/
     outline: none;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-/*    font: 14px/100% Arial, Helvetica, sans-serif;*/
     padding: 5px 10px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-    -webkit-border-radius: .5em;
-    -moz-border-radius: .5em;
-    border-radius: .5em;
+    .rounded-corners;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
@@ -63,19 +75,6 @@ button {
         background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
 /*        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');*/
     }
-}
-
-/**** COMMON
-*******************************************************************************/
-body {
-    margin: 0;
-    padding: 0;
-    color: @color;
-    font-family: 'Abel', sans-serif;
-}
-
-.clear {
-    clear: both;
 }
 
 
@@ -114,7 +113,6 @@ body {
                     a {
                         color: @menu-selected-color;
                         .text-effect(@menu-selected-bgcolor);
-/*                        text-shadow: 0px -1px 1px #000000;*/
                     }
                 }
             }
@@ -153,7 +151,8 @@ body {
                     .box-shadow;
                     padding: 20px 20px 10px 20px;
                     background: @box-bgcolor;
-                    div {
+
+                    .field {
                         padding: 10px;
                         label {
                             width: 80px;
@@ -161,26 +160,59 @@ body {
                             display: inline-block;
                         }
                         input {
-                            width: 300px;
+                            width: 260px;
                         }
                         input, textarea {
-                            padding: 5px 2px;
+                            padding: 5px 3px;
                             .rounded-corners;
                             font-size: @font-normal;
                             border: 1px solid #AAA;
+                            &.error {
+                                border-color: @error-color;
+                            }
+                            &.valid {
+                                border-color: @success-color;
+                            }
                         }
                         textarea {
                             width: 85%;
                             height: 200px;
+                            padding-left: 3px;
                         }
-                        span {
-                            color: #AAA;
-                            padding: 10px;
+                        .msg {
+                            height: 16px;
+                            span {
+                                color: @error-color;
+                                padding: 10px;
+                            }
+                        }
+                        div.msg {
+                            margin-left: 80px;
                         }
                     }
+
                     .footer {
+                        padding: 0 14px 10px 0px;
                         text-align: right;
+                        .status {
+                            padding: 10px;
+                            position: absolute;
+                            margin-left: 90px;
+                            margin-top: -7px;
+                            font-size: @font-normal;
+                            &.success {
+                                color: @success-color;
+                            }
+                            &.error {
+                                color: @error-color;
+                            }
+                            &.loading {
+                                padding-left: 25px;
+                                background: url('../img/loader.gif') no-repeat scroll 0 15px transparent;
+                            }
+                        }
                     }
+
                 }
 
                 h2 {
@@ -212,9 +244,8 @@ body {
                             color: black;
                             font-size: 2px;
                             background: black;
-                            margin-left: 5px !important;
-/*                            .box-shadow;*/
                             .rounded-corners(10px);
+                            margin-left: 5px !important;
                             &.current {
                                 color: @color;
                                 background: @color;
@@ -231,11 +262,11 @@ body {
                     table-layout: fixed;
                     border-spacing: 10px 0;
                     border-collapse: separate;
+
                     td {
                         padding: 10px;
                         .rounded-corners;
                         .box-shadow;
-/*                        border: 1px solid white;*/
                         background: @box-bgcolor;
                         h3 {
                             margin: 5px 0;

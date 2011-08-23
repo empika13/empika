@@ -12,6 +12,7 @@
         <!-- // <script type="text/javascript" charset="utf-8" src="js/flux-jquery.js"></script> -->
         <script type="text/javascript" charset="utf-8" src="js/scrollto.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/localscroll.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/validate.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/init.js"></script>
 
     </head>
@@ -85,23 +86,24 @@
                         <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla sem, mollis sed tincidunt sit amet, posuere elementum arcu.</p>
 
                         <form>
-                            <div>
+                            <div class="field">
                                 <label for="form-name">Nom *</label>
-                                <input id="form-name" name="name" />
-                                <span>ex: <i>Emilie Martin</i></span>
+                                <input id="form-name" name="name" placeholder="ex: Emilie Martin" />
+                                <span class="msg"></span>
                             </div>
-                            <div>
+                            <div class="field">
                                 <label for="form-email">Email *</label>
-                                <input id="form-email" name="email" />
-                                <span>ex: <i>emilie.martin@gmail.com</i></span>
+                                <input id="form-email" name="email" placeholder="ex: emilie.martin@gmail.com" />
+                                <span class="msg"></span>
                             </div>
-                            <div>
+                            <div class="field">
                                 <label for="form-message">Message *</label>
-                                <textarea id="form-message" name="message"></textarea>
-                                <span></span>
+                                <textarea id="form-message" name="message" placeholder="votre message..."></textarea>
+                                <div class="msg"></div>
                             </div>
                             <div class="footer">
-                                <button>Envoyer</button>
+                                <div class="status"></div>
+                                <button onclick="validateForm()">Envoyer</button>
                             </div>
                         </form>
 
