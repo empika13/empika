@@ -78,6 +78,50 @@ button {
 }
 
 
+/**** SLIDER
+*******************************************************************************/
+@import "css/slider.css";
+
+.nivo-controlNav {
+    height: 20px;
+    width: 100%;
+    margin-top: 300px;
+    position: absolute;
+    text-align: center;
+    a {
+        margin: 2px;
+        width: 12px;
+        height: 12px;
+        color: lightgrey;
+        font-size: 2px;
+        background: lightgrey;
+        .rounded-corners(10px);
+        display: inline-block !important;
+        &.active {
+            color: darkgrey;
+            background: darkgrey;
+        }
+    }
+}
+
+.nivoSlider {
+    position:relative;
+    width:640px; /* Change this to your images width */
+    height:300px; /* Change this to your images height */
+    background:url('../img/loader.gif') no-repeat 50% 50%;
+}
+.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+.nivoSlider a {
+    border:0;
+    display:block;
+}
+
+
 /**** MENU
 *******************************************************************************/
 .menu {
@@ -231,27 +275,12 @@ button {
                 }
 
                 .carousel {
-                    height: 323px;
+                    height: 300px !important;
                     width: 640px;
                     .rounded-corners;
                     .box-shadow;
                     background: @box-bgcolor;
-                    padding: 20px 20px 10px 20px;
-                    .pagination {
-                        li {
-                            width: 12px;
-                            height: 12px;
-                            color: black;
-                            font-size: 2px;
-                            background: black;
-                            .rounded-corners(10px);
-                            margin-left: 5px !important;
-                            &.current {
-                                color: @color;
-                                background: @color;
-                            }
-                        }
-                    }
+                    padding: 20px 20px 30px 20px;
                 }
 
                 .boxes {

@@ -92,8 +92,12 @@ jQuery(function( $ ) {
     setSelectedMenuItem();
 
     // setup carousel
-    new flux.slider('#slider', {
-        pagination: true
+    $('#slider').nivoSlider({
+        directionNav: false,
+        effect: 'sliceUpDown,sliceUpDownLeft,fold,boxRain,slideInRight'
     });
+    // new flux.slider('#slider', {
+    //     pagination: true
+    // });
 
 });
