@@ -1,20 +1,22 @@
 /**** VARIABLES
 *******************************************************************************/
 @pageWidth: 900px;
-@rightColWidth: @pageWidth * 0.75;
+@rightColWidth: @pageWidth * 0.72;
 @leftColWidth: @pageWidth - @rightColWidth;
 
 @font-small: 1.1em;
 @font-normal: 1.2em;
 
 @color: #525252;
+@error-color: darkred;
+@success-color: darkgreen;
 
-/*@box-bgcolor: #CAC9C9;*/
 @box-bgcolor: rgba(255, 255, 255, 0.6);
 
 @menu-selected-color: #FFF;
 @menu-selected-bgcolor: rgba(51, 51, 51, .8);
 
+@base-img-url: "../img/";
 
 /**** FUNCTIONS
 *******************************************************************************/
@@ -28,26 +30,42 @@
     text-shadow: 0px 1px 1px @color;
 }
 
+/*.box-shadow (@x: 0, @y: 0, @blur: 11px, @spread: -9px, @color: #000) {
+    box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+}*/
 .box-shadow () {
     -webkit-box-shadow: 0px 0px 11px -9px #000000;
     -moz-box-shadow: 0px 0px 11px -9px #000000;
+}
+
+
+/**** COMMON
+*******************************************************************************/
+body {
+    margin: 0;
+    padding: 0;
+    color: @color;
+    font-family: 'Volkov', sans-serif;
+}
+
+.clear {
+    clear: both;
 }
 
 button {
     display: inline-block;
     zoom: 1;
     vertical-align: baseline;
-    margin: 0 2px;
+/*    margin: 0 2px;*/
     outline: none;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-/*    font: 14px/100% Arial, Helvetica, sans-serif;*/
     padding: 5px 10px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-    -webkit-border-radius: .5em;
-    -moz-border-radius: .5em;
-    border-radius: .5em;
+    .rounded-corners;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
@@ -56,26 +74,57 @@ button {
     background: white;
     background: -webkit-gradient(linear, left top, left bottom, from(white), to(#EDEDED));
     background: -moz-linear-gradient(top, white, #EDEDED);
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');*/
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed')";
     &:hover {
         background: #ededed;
         background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
         background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
-/*        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');*/
+        filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc')";
     }
 }
 
-/**** COMMON
+
+/**** SLIDER
 *******************************************************************************/
-body {
-    margin: 0;
-    padding: 0;
-    color: @color;
-    font-family: 'Abel', sans-serif;
+@import "css/slider.css";
+
+.nivo-controlNav {
+    height: 20px;
+    width: 100%;
+    margin-top: 300px;
+    position: absolute;
+    text-align: center;
+    a {
+        margin: 2px;
+        width: 12px;
+        height: 12px;
+        color: lightgrey;
+        font-size: 2px;
+        background: lightgrey;
+        .rounded-corners(10px);
+        display: inline-block !important;
+        &.active {
+            color: darkgrey;
+            background: darkgrey;
+        }
+    }
 }
 
-.clear {
-    clear: both;
+.nivoSlider {
+    position:relative;
+    width:613px; /* Change this to your images width */
+    height:300px; /* Change this to your images height */
+    background:url('@{base-img-url}loader.gif') no-repeat 50% 50%;
+}
+.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+.nivoSlider a {
+    border:0;
+    display:block;
 }
 
 
@@ -92,21 +141,25 @@ body {
         z-index: 1;
 
         .logo {
-            padding: 10px 0 150px 15px;
+            padding: 10px 0 80px 30px;
         }
 
         .links {
             margin: 0 20px;
             .link {
-                padding: 5px 5px 5px 20px;
+                padding: 5px 5px 5px 35px;
                 border-left: 1px solid transparent;
                 border-bottom: 1px solid transparent;
                 a {
-                    .text-effect;
+					.text-effect;
                     color: @color;
                     font-size: @font-small;
                     text-decoration: none;
                 }
+				a:hover {
+					color: #ACA185;
+					xbackground: url('@{base-img-url}rond.png') no-repeat scroll left transparent;
+				}
                 &.selected {
                     background: @menu-selected-bgcolor;
                     border-left: 1px solid #EFEFEF;
@@ -114,12 +167,18 @@ body {
                     a {
                         color: @menu-selected-color;
                         .text-effect(@menu-selected-bgcolor);
-/*                        text-shadow: 0px -1px 1px #000000;*/
                     }
                 }
             }
         }
-
+		
+		.tel {
+			padding: 80px 0 0 55px;
+			color: #ACA185;
+			xfont-weight: bold;
+			font-size: 1.4em;
+			xtext-align: center;
+		}
     }
 }
 
@@ -153,7 +212,8 @@ body {
                     .box-shadow;
                     padding: 20px 20px 10px 20px;
                     background: @box-bgcolor;
-                    div {
+
+                    .field {
                         padding: 10px;
                         label {
                             width: 80px;
@@ -161,66 +221,84 @@ body {
                             display: inline-block;
                         }
                         input {
-                            width: 300px;
+                            width: 260px;
                         }
                         input, textarea {
-                            padding: 5px 2px;
+                            padding: 5px 3px;
                             .rounded-corners;
                             font-size: @font-normal;
                             border: 1px solid #AAA;
+                            &.error {
+                                border-color: @error-color;
+                            }
+                            &.valid {
+                                border-color: @success-color;
+                            }
                         }
                         textarea {
                             width: 85%;
                             height: 200px;
+                            padding-left: 3px;
                         }
-                        span {
-                            color: #AAA;
-                            padding: 10px;
+                        .msg {
+                            height: 16px;
+                            span {
+                                color: @error-color;
+                                padding: 10px;
+                            }
+                        }
+                        div.msg {
+                            margin-left: 80px;
                         }
                     }
+
                     .footer {
+                        padding: 0 14px 10px 0px;
                         text-align: right;
+                        .status {
+                            padding: 10px;
+                            position: absolute;
+                            margin-left: 90px;
+                            margin-top: -7px;
+                            font-size: @font-normal;
+                            &.success {
+                                color: @success-color;
+                            }
+                            &.error {
+                                color: @error-color;
+                            }
+                            &.loading {
+                                padding-left: 25px;
+                                background: url('@{base-img-url}loader.gif') no-repeat scroll 0 15px transparent;
+                            }
+                        }
                     }
+
                 }
 
                 h2 {
                     margin: 0;
-                    font-size: 4em;
+                    font-size: 2.7em;
                     .text-effect;
-                    font-family: 'Yanone Kaffeesatz', sans-serif;
+                    font-family: 'Amaranth', sans-serif;
+    				padding: 10px 0 0;
                 }
 
                 .subtitle {
-                    color: #636363;
-                    font-size: @font-small;
+                    color: #ACA185;
+                    font-size: 1.3em;
                     font-style: italic;
                     margin-bottom: 25px;
                     font-family: 'Volkhov', serif;
                 }
 
                 .carousel {
-                    height: 323px;
-                    width: 640px;
+                    height: 300px !important;
+                    width: 613px;
                     .rounded-corners;
                     .box-shadow;
                     background: @box-bgcolor;
-                    padding: 20px 20px 10px 20px;
-                    .pagination {
-                        li {
-                            width: 12px;
-                            height: 12px;
-                            color: black;
-                            font-size: 2px;
-                            background: black;
-                            margin-left: 5px !important;
-/*                            .box-shadow;*/
-                            .rounded-corners(10px);
-                            &.current {
-                                color: @color;
-                                background: @color;
-                            }
-                        }
-                    }
+                    padding: 20px 20px 30px 20px;
                 }
 
                 .boxes {
@@ -231,11 +309,11 @@ body {
                     table-layout: fixed;
                     border-spacing: 10px 0;
                     border-collapse: separate;
+
                     td {
                         padding: 10px;
                         .rounded-corners;
                         .box-shadow;
-/*                        border: 1px solid white;*/
                         background: @box-bgcolor;
                         h3 {
                             margin: 5px 0;
@@ -249,8 +327,10 @@ body {
                         .link {
                             text-align: right;
                             a {
-                                color: @color;
+                                color: #fff;
                                 text-decoration: none;
+								background-color: #B10055;
+								padding: 3px 4px 3px 4px;
                                 &:hover {
                                     text-decoration: underline;
                                 }
@@ -268,17 +348,23 @@ body {
 
 
 #page1 {
-    background: url('../img/02original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/04original.gif') repeat scroll 0 0 transparent;
 }
 #page2 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/04original.gif') repeat scroll 0 0 transparent;
 }
 #page3 {
-    background: #CCCCCC;
+    background: url('../img/02original.gif') repeat scroll 0 0 transparent;
 }
 #page4 {
-    background: #BBBBBB;
+    background: url('../img/03original.gif') repeat scroll 0 0 transparent;
 }
 #page5 {
     background: #AAAAAA;
+}
+#page6 {
+    background: #AAAAAA;
+}
+#page7 {
+    background: url('../img/02original.gif') repeat scroll 0 0 transparent;
 }

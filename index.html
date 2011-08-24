@@ -1,35 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="fr"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="fr"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="fr"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>EMPIKA</title>
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Abel|Yanone+Kaffeesatz|Volkhov:400,400italic' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Oswald|Cuprum' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+		
         <link rel="stylesheet/less" type="text/css" href="css/reset.css" />
         <link rel="stylesheet/less" type="text/css" href="css/style.less" />
 
         <script type="text/javascript" charset="utf-8" src="js/less.js"></script>
-        <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/flux.js"></script>
-        <!-- // <script type="text/javascript" charset="utf-8" src="js/flux-jquery.js"></script> -->
-        <script type="text/javascript" charset="utf-8" src="js/scrollto.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/localscroll.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/init.js"></script>
-
+        <script type="text/javascript" charset="utf-8" src="js/modernizr.js"></script>
     </head>
+
     <body>
         <div class="menu">
             <div class="menu-wrap">
                 <div class="logo">
                     <a href="#page1">
-                        <img src="img/logo.png" /> <!-- width="135px" height="39px" -->
+                        <img width="180px" height="210px" src="img/logo.png" /> 
                     </a>
                 </div>
                 <div class="links">
-                    <div class="link"><a href="#page1">PAGE 1</a></div>
-                    <div class="link"><a href="#page2">PAGE 2</a></div>
-                    <div class="link"><a href="#page3">PAGE 3</a></div>
-                    <div class="link"><a href="#page4">PAGE 4</a></div>
-                    <div class="link"><a href="#page5">PAGE 5</a></div>
+                    <div class="link"><a href="#page1">ACCUEIL</a></div>
+					<div class="link"><a href="#page2">HYPNOSE</a></div>
+                    <div class="link"><a href="#page3">APPLICATIONS</a></div>
+                    <div class="link"><a href="#page4">SEANCES</a></div>
+					<div class="link"><a href="#page5">DEONTOLOGIE</a></div>
+                    <div class="link"><a href="#page6">QUI SUIS-JE ?</a></div>
+                    <div class="link"><a href="#page7">CONTACT</a></div>
                 </div>
+				<div class="tel">
+					INFOS & RDV <br>
+					<b>06.19.72.75.32</b>
+				</div>
             </div>
         </div>
         <div class="container">
@@ -40,31 +57,59 @@
 
                     <!-- start coding here! -->
 
-                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <h2>Bien être et développement personnel</h2>
                     <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla sem, mollis sed tincidunt sit amet, posuere elementum arcu.</p>
 
-                    <div class="carousel" id="slider">
-                        <img width="640px" height="480px" src="http://clients.iglobal.co.za/sacf/images/stories/novdes2010/2010_novdes_nurse_1.jpg" />
-                        <img width="640px" height="480px" src="http://www.accommodationgrampians.com.au/wp-content/uploads/2011/04/halls-gap-zoo-grampians-accommodation-large.jpg" />
-                        <img width="640px" height="480px" src="http://www.nickgknight.com/awf/assets/empowering.jpg" />
-                        <img width="640px" height="480px" src="http://www.pop.com.br/arquivos/leaotrash/69645_leaoINTjpg.jpg" />
-                        <img width="640px" height="480px" src="http://www.pop.com.br/arquivos/t/tra/trash1402/178716_tigreintjpg.jpg" />
-                        <img width="640px" height="480px" src="http://www.pop.com.br/arquivos/t/tra/trash230611/275645_pinguimINTjpg.jpg" />
+                    <div class="carousel">
+                        <div class="nivoSlider" id="slider">
+                            <img width="613px" height="300px" src="img/carousel/tresor.jpg" />
+                            <img width="613px" height="300px" src="img/carousel/changement.jpg" />
+                            <img width="613px" height="300px" src="img/carousel/mincir.jpg" />
+                            <img width="613px" height="300px" src="img/carousel/cesser-fumer.jpg" />
+                            <img width="613px" height="300px" src="img/carousel/stress.jpg" />
+                            <img width="613px" height="300px" src="img/carousel/bien-etre.jpg" />
+							<img width="613px" height="300px" src="img/carousel/mobiliser-ressources.jpg" />
+                        </div>
+                    </div>
+                    <div id="htmlcaption" class="nivo-html-caption">
+                        <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
                     </div>
 
                     <table class="boxes"><tr>
                         <td>
-                            <h3>LOREM IPSUM</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla sem, mollis sed tincidunt sit amet, posuere elementum arcu.</p>
+                            <h3>SANTE & BIEN ETRE <br><span style="color:#ACA185">***</span></h3>			
+                            <p>
+									<img width="15px" height="15px" src="img/rond-croix.png" /> Mincir<br>
+									<img width="15px" height="15px" src="img/rond-croix.png" /> Cesser de fumer<br>
+									<img width="15px" height="15px" src="img/rond-croix.png" /> Gestion du stress<br>
+									<img width="15px" height="15px" src="img/rond-croix.png" /> Anxiété, peurs, phobies<br>
+									<img width="15px" height="15px" src="img/rond-croix.png" /> Blocages émotionnels</br>
+									<img width="15px" height="15px" src="img/rond-croix.png" /> ...</br>
+							</p>
                             <div class="link"><a href="#page2">> plus d'info</a></div>
                         </td>
                         <td>
-                            <h3>LOREM IPSUM</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla sem, mollis sed tincidunt sit amet, posuere elementum arcu.</p>
+                            <h3>CHANGEMENTS DE VIE <br><span style="color:#ACA185">***</span></h3>
+                            <p>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Reconversion professionnelle<br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Divorce<br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Déménagements</br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Retraite</br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> ...</br>
+							</p>
+							<div class="link"><a href="#page2">> plus d'info</a></div>
                         </td>
                         <td>
-                            <h3>LOREM IPSUM</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla sem.</p>
+                            <h3>PREPARATION MENTALE <br><span style="color:#ACA185">***</span></h3>
+                            <p>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Exams, concours<br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Prise de parole<br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Représentation, spectacles</br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Améliorer sa mémoire</br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> Développer sa créativité</br>
+								<img width="15px" height="15px" src="img/rond-croix.png" /> ...</br>
+							</p>
+							<div class="link"><a href="#page2">> plus d'info</a></div>
                         </td>
                     </tr></table>
 
@@ -81,29 +126,11 @@
 
                         <!-- start coding here! -->
 
-                        <h2>Lorem ipsum dolor sit amet</h2>
-                        <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla sem, mollis sed tincidunt sit amet, posuere elementum arcu.</p>
+                        <h2>Qu'est-ce que l'hypnose?</h2>
+                        <p class="subtitle">L'hypnose éveille vos sens, réveille votre potentiel.</p>
+						<p>Le terme "hypnose" désigne à la fois un état de conscience élargi donnant accès à l'ensemble des ressources de l'individu ainsi qu'un ensemble d'outils permettant de mettre à profit ces ressources.</p>
+						<img width="613px" height="300px" src="img/cerveau.jpg" />
 
-                        <form>
-                            <div>
-                                <label for="form-name">Nom *</label>
-                                <input id="form-name" name="name" />
-                                <span>ex: <i>Emilie Martin</i></span>
-                            </div>
-                            <div>
-                                <label for="form-email">Email *</label>
-                                <input id="form-email" name="email" />
-                                <span>ex: <i>emilie.martin@gmail.com</i></span>
-                            </div>
-                            <div>
-                                <label for="form-message">Message *</label>
-                                <textarea id="form-message" name="message"></textarea>
-                                <span></span>
-                            </div>
-                            <div class="footer">
-                                <button>Envoyer</button>
-                            </div>
-                        </form>
 
                         <!-- stop coding here! -->
 
@@ -141,6 +168,74 @@
                     <div class="clear"></div>
                 </div>
             </div>
+            <div id="page6" class="page">
+                <div class="content">
+                    <div class="content-wrap">
+                        <!-- start coding here! -->
+                        page 6
+                        <!-- stop coding here! -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div id="page7" class="page">
+                <div class="content">
+                    <div class="content-wrap">
+                        <h2>Contact</h2>
+                        <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla sem, mollis sed tincidunt sit amet, posuere elementum arcu.</p>
+
+                        <form>
+                            <div class="field">
+                                <label for="form-name">Nom *</label>
+                                <input id="form-name" name="name" placeholder="ex: Emilie Martin" />
+                                <span class="msg"></span>
+                            </div>
+                            <div class="field">
+                                <label for="form-email">Email *</label>
+                                <input id="form-email" name="email" placeholder="ex: emilie.martin@gmail.com" />
+                                <span class="msg"></span>
+                            </div>
+                            <div class="field">
+                                <label for="form-message">Message *</label>
+                                <textarea id="form-message" name="message" placeholder="votre message..."></textarea>
+                                <div class="msg"></div>
+                            </div>
+                            <div class="footer">
+                                <div class="status"></div>
+                                <button onclick="validateForm()">Envoyer</button>
+                            </div>
+                        </form>
+
+                        <!-- stop coding here! -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
         </div>
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+
+        <script type="text/javascript" charset="utf-8" src="js/slider.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/scrollto.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/localscroll.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/validate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/init.js"></script>
+
+        <script> // Change UA-XXXXX-X to be your site's ID
+            // window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+            // Modernizr.load({
+            //     load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+            // });
+        </script>
+
+        <!--[if lt IE 7 ]>
+            <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+            <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+
     </body>
 </html>
