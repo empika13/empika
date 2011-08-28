@@ -15,6 +15,8 @@
 
 @menu-selected-color: #FFF;
 @menu-selected-bgcolor: rgba(51, 51, 51, .8);
+@menu-over-color: #666666;
+@menu-over-bgcolor: rgba(51, 51, 51, .2);
 
 @base-img-url: "../img/";
 
@@ -30,16 +32,19 @@
     text-shadow: 0px 1px 1px @color;
 }
 
-/*.box-shadow (@x: 0, @y: 0, @blur: 11px, @spread: -9px, @color: #000) {
-    box-shadow: @arguments;
-    -moz-box-shadow: @arguments;
-    -webkit-box-shadow: @arguments;
-}*/
 .box-shadow () {
     -webkit-box-shadow: 0px 0px 11px -9px #000000;
     -moz-box-shadow: 0px 0px 11px -9px #000000;
 }
 
+.menu-transition () {
+    -webkit-transition-property: background, color;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: background, color;
+    -moz-transition-duration: 1s;
+    transition-property: background, color;
+    transition-duration: 1s;
+}
 
 /**** COMMON
 *******************************************************************************/
@@ -148,19 +153,29 @@ button {
             margin: 0 20px;
             .link {
                 padding: 5px 5px 5px 20px;
-                border-left: 1px solid transparent;
-                border-bottom: 1px solid transparent;
-                a {
+                border: 1px solid transparent;
+                .menu-transition;
+                a, a:visited {
                     .text-effect;
                     color: @color;
                     font-size: @font-small;
                     text-decoration: none;
                 }
+                &:hover {
+                    .text-effect;
+                    background: @menu-over-bgcolor;
+/*                    border-left: 1px solid #EFEFEF;*/
+/*                    border-bottom: 1px solid #EFEFEF;*/
+                    a, a:visited {
+                        color: @menu-over-color;
+/*                        .text-effect(@menu-selected-bgcolor);*/
+                    }
+                }
                 &.selected {
                     background: @menu-selected-bgcolor;
                     border-left: 1px solid #EFEFEF;
                     border-bottom: 1px solid #EFEFEF;
-                    a {
+                    a, a:visited {
                         color: @menu-selected-color;
                         .text-effect(@menu-selected-bgcolor);
                     }
