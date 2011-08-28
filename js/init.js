@@ -1,15 +1,18 @@
-function setSelectedMenuItem() {
-    var href, idx = 0,
-        h = window.location.hash,
-        links = $('.links .link');
-    links.removeClass('selected');
-    if (h) {
-        for (var i = 0, l = links.length; i < l; i++) {
-            href = links[i].firstChild.attributes[0].value;
-            if (href === h) idx = i;
+function setSelectedMenuItem(link) {
+    var links = $('.links .link');
+    if (!link) {
+        var href, idx = 0,
+            h = window.location.hash;
+        if (h) {
+            for (var i = 0, l = links.length; i < l; i++) {
+                href = links[i].firstChild.attributes[0].value;
+                if (href === h) idx = i;
+            }
         }
+        link = links[idx];
     }
-    $(links[idx]).addClass('selected');
+    links.removeClass('selected');
+    $(link).addClass('selected');
 }
 
 
@@ -73,23 +76,21 @@ function setFormStatus(status) {
 
 jQuery(function( $ ) {
 
-    // setup animated anchor scroll
-    $('.links, .container').localScroll({
-        target: '.container',
-        queue:true,
-        duration:1000,
-        hash:true,
-        onBefore:function(e, anchor, $target) {
-            // $('.links .link').removeClass('selected');
-            // $(e.currentTarget.parentNode).addClass('selected');
-        },
-        onAfter:function(anchor, settings) {
-            setSelectedMenuItem();
-        }
-    });
+    var container = $('.container');
 
     // set selected menu item
     setSelectedMenuItem();
+
+    // setup animated anchor scroll
+    $('.links, .container').localScroll({
+        target: '.container',
+        queue: true,
+        duration: 1000,
+        hash: true,
+        onBefore: function(e, anchor, $target) {
+            setSelectedMenuItem(e.target.parentNode);
+        }
+    });
 
     // setup carousel
     $('#slider').nivoSlider({
@@ -97,8 +98,15 @@ jQuery(function( $ ) {
 		effect: 'sliceUpDown,boxRain,boxRandom'
         //effect: 'sliceUpDown,sliceUpDownLeft,fold,boxRain,boxRandom,slideInRight'
     });
-    // new flux.slider('#slider', {
-    //     pagination: true
-    // });
+
+    $(window).resize(function() {
+        var height = $(window).height();
+        $('.page', container).height(height);
+        $.localScroll.hash({
+            target: '.container',
+            queue: true,
+            duration: 0
+        });
+    });
 
 });
