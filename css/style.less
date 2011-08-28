@@ -49,6 +49,12 @@
     transition-duration: 1s;
 }
 
+.text-subsub (@font-size: 1.2em) {
+    color: #81003B;
+	font-weight: bold;
+    font-size: @font-size;
+}
+
 /**** COMMON
 *******************************************************************************/
 body {
@@ -320,9 +326,7 @@ button {
 				}
 				
 				.subsubtitle {
-					color: #81003B;
-					font-weight: bold;
-					font-size: @font-small;
+					.text-subsub ;
 				}
 				
 				.horizontal-boxes { 	
