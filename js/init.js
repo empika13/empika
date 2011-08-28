@@ -85,6 +85,7 @@ jQuery(function( $ ) {
         duration: 1000,
         hash: true,
         onBefore: function(e, anchor, $target) {
+            anchor.scrollTop = 0;
             setSelectedMenuItem('#' + anchor.id);
         }
     });
