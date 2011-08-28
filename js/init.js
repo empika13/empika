@@ -1,18 +1,15 @@
-function setSelectedMenuItem(link) {
-    var links = $('.links .link');
-    if (!link) {
-        var href, idx = 0,
-            h = window.location.hash;
-        if (h) {
-            for (var i = 0, l = links.length; i < l; i++) {
-                href = links[i].firstChild.attributes[0].value;
-                if (href === h) idx = i;
-            }
+function setSelectedMenuItem(hash) {
+    var href, idx = 0,
+        links = $('.links .link'),
+        h = hash || window.location.hash;
+    if (h) {
+        for (var i = 0, l = links.length; i < l; i++) {
+            href = links[i].firstChild.attributes[0].value;
+            if (href === h) idx = i;
         }
-        link = links[idx];
     }
     links.removeClass('selected');
-    $(link).addClass('selected');
+    $(links[idx]).addClass('selected');
 }
 
 
@@ -82,13 +79,13 @@ jQuery(function( $ ) {
     setSelectedMenuItem();
 
     // setup animated anchor scroll
-    $('.links, .container').localScroll({
+    $('.menu, .container').localScroll({
         target: '.container',
         queue: true,
         duration: 1000,
         hash: true,
         onBefore: function(e, anchor, $target) {
-            setSelectedMenuItem(e.target.parentNode);
+            setSelectedMenuItem('#' + anchor.id);
         }
     });
 
