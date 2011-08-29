@@ -73,6 +73,7 @@ function setFormStatus(status) {
 
 jQuery(function( $ ) {
 
+    var slider = $('#slider');
     var container = $('.container');
 
     // set selected menu item
@@ -85,12 +86,14 @@ jQuery(function( $ ) {
         duration: 1000,
         hash: true,
         onBefore: function(e, anchor, $target) {
+            anchor.scrollTop = 0;
             setSelectedMenuItem('#' + anchor.id);
+            slider.data('nivo:vars').stop = anchor.id !== 'page1';
         }
     });
 
     // setup carousel
-    $('#slider').nivoSlider({
+    slider.nivoSlider({
         directionNav: false,
 		effect: 'sliceUpDown,boxRain,boxRandom'
         //effect: 'sliceUpDown,sliceUpDownLeft,fold,boxRain,boxRandom,slideInRight'
