@@ -4,9 +4,9 @@
 @rightColWidth: @pageWidth * 0.72;
 @leftColWidth: @pageWidth - @rightColWidth;
 
-@font-verysmall: 1em;
-@font-small: 1.1em;
-@font-normal: 1.2em;
+@font-verysmall: 1.1em;
+@font-small: 1.2em;
+@font-normal: 1.3em;
 
 @color: #525252;
 @error-color: darkred;
@@ -49,7 +49,7 @@
     transition-duration: 1s;
 }
 
-.text-subsub (@font-size: 1.2em) {
+.text-subsub (@font-size: 1.4em) {
     color: #81003B;
 	font-weight: bold;
     font-size: @font-size;
@@ -61,7 +61,7 @@ body {
     margin: 0;
     padding: 0;
     color: @color;
-    font-family: 'Volkov', sans-serif;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .clear {
@@ -265,7 +265,7 @@ button {
                         }
                         textarea {
                             width: 85%;
-                            height: 150px;
+                            height: 130px;
                             padding-left: 3px;
                         }
                         .msg {
@@ -314,7 +314,7 @@ button {
 
                 .subtitle {
                     color: #ACA185;
-                    font-size: 1.3em;
+                    font-size: 1.4em;
                     font-style: italic;
                     margin-bottom: 25px;
                     font-family: 'Volkhov', serif;
@@ -322,7 +322,11 @@ button {
 
 				p {
 					text-align: justify;
-					font-size: @font-normal;					
+					font-size: @font-normal;
+					
+					.marge	{
+						margin-left: 45px;
+					}				
 				}
 				
 				.subsubtitle {
@@ -341,14 +345,34 @@ button {
 					td {
                         padding: 10px;
 						font-size: @font-normal;
-						text-align: justify;
+						text-align: justify; 
+						.subsubtitle {
+							.text-subsub (1.1em);
+						}
+						.square {
+							list-style-type:square;
+							color: #ACA185;
+							font-size: 1em;
+							text-align: justify;
+							padding: 0 0 0 40px;
+							margin: 0;
+							xlist-style-image: url('@{base-img-url}rond-croix.png');
+						}
+						li span {
+							color: @color;
+						}
+						.subsubtitle {
+							.text-subsub (1.1em);
+							padding: 0 0 10px;
+							
+						}
 					}
 				}
 				
 				.square {
 					list-style-type:square;
 					color: #ACA185;
-					xfont-size: @font-small;
+					font-size: 1.2em;
 					text-align: justify;
 					padding: 0 0 0 40px;
 					margin: 0;
@@ -358,6 +382,7 @@ button {
 				li span {
 					color: @color;
 				}
+
 				
 				.vert {
 					color: #ACA185;
