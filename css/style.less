@@ -16,9 +16,9 @@
 
 @menu-selected-color: #FFF;
 
-@menu-selected-bgcolor: rgba(51, 51, 51, .6);
-@menu-over-color: #666666;
-@menu-over-bgcolor: rgba(51, 51, 51, .2);
+@menu-selected-bgcolor: rgba(34, 47, 81, 1);
+@menu-over-color: #FFF;
+@menu-over-bgcolor: rgba(34, 47, 81, .8);
 
 
 @base-img-url: "../img/";
@@ -32,7 +32,7 @@
 }
 
 .text-effect (@color: #FFF) {
-    text-shadow: 0px 1px 1px @color;
+    xtext-shadow: 0px 1px 1px @color;
 }
 
 .box-shadow () {
@@ -50,7 +50,7 @@
 }
 
 .text-subsub (@font-size: 1.4em) {
-    color: #81003B;
+    color: #222F51;
 	font-weight: bold;
     font-size: @font-size;
 }
@@ -180,8 +180,8 @@ button {
                 &:hover {
                     .text-effect;
                     background: @menu-over-bgcolor;
-/*                    border-left: 1px solid #EFEFEF;*/
-/*                    border-bottom: 1px solid #EFEFEF;*/
+                    xborder-left: 1px solid #EFEFEF;
+                   	xborder-bottom: 1px solid #EFEFEF;
                     a, a:visited {
                         color: @menu-over-color;
 /*                        .text-effect(@menu-selected-bgcolor);*/
@@ -190,8 +190,8 @@ button {
 
                 &.selected {
                     background: @menu-selected-bgcolor;
-                    border-left: 1px solid #EFEFEF;
-                    border-bottom: 1px solid #EFEFEF;
+                    xborder-left: 1px solid #EFEFEF;
+                    xborder-bottom: 1px solid #EFEFEF;
                     a, a:visited {
                         color: @menu-selected-color;
                         .text-effect(@menu-selected-bgcolor);
@@ -265,7 +265,7 @@ button {
                         }
                         textarea {
                             width: 85%;
-                            height: 130px;
+                            height: 100px;
                             padding-left: 3px;
                         }
                         .msg {
@@ -313,7 +313,7 @@ button {
                 }
 
                 .subtitle {
-                    color: #ACA185;
+                    color: #5B8A8A;
                     font-size: 1.4em;
                     font-style: italic;
                     margin-bottom: 25px;
@@ -447,7 +447,7 @@ button {
                             a {
                                 color: #fff;
                                 text-decoration: none;
-								background-color: #B10055;
+								background-color: #222F51;
 								padding: 3px 4px 3px 4px;
                                 &:hover {
                                     text-decoration: underline;
@@ -466,23 +466,23 @@ button {
 
 
 #page1 {
-    background: url('../img/04original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page2 {
-    background: url('../img/04original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page3 {
-    background: url('../img/02original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page4 {
-    background: url('../img/03original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page5 {
-    background: url('../img/03original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page6 {
-    background: url('../img/03original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page7 {
-    background: url('../img/02original.gif') repeat scroll 0 0 transparent;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
