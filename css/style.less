@@ -1,7 +1,7 @@
 /**** VARIABLES
 *******************************************************************************/
 @pageWidth: 900px;
-@rightColWidth: @pageWidth * 0.72;
+@rightColWidth: 650px;
 @leftColWidth: @pageWidth - @rightColWidth;
 
 @font-verysmall: 1.1em;
@@ -12,7 +12,7 @@
 @error-color: darkred;
 @success-color: darkgreen;
 
-@box-bgcolor: rgba(255, 255, 255, 0.6);
+@box-bgcolor: rgba(230, 230, 231, 0.9);
 
 @menu-selected-color: #FFF;
 
@@ -148,14 +148,15 @@ button {
     margin: 0 auto;
     width: @pageWidth;
     .menu-wrap {
-        width: @leftColWidth;
+        width: 230px;
         height: 100%;
         position: fixed;
         top: 0;
         z-index: 1;
+		background: #222F51;
 
         .logo {
-            padding: 10px 0 80px 30px;
+            padding: 10px 0 80px 25px;
         }
 
         .links {
@@ -163,11 +164,12 @@ button {
             .link {
 
                 padding: 5px 5px 5px 35px;
+				text-align: right;
                 border: 1px solid transparent;
                 .menu-transition;
                 a, a:visited {
                     .text-effect;
-                    color: @color;
+                    color: #6d6d6d;
                     font-size: @font-small;
                     text-decoration: none;
                 }
@@ -201,12 +203,24 @@ button {
         }
 		
 		.tel {
-			padding: 80px 0 0 55px;
-			color: #9A1160;
+			padding: 60px 0 0 55px;
+			color: #FFF;
 			xfont-weight: bold;
-			font-size: 1.4em;
-			xtext-align: center;
+			font-size: 1.2em;
+			text-align: right;
+			padding-right: 20px;
+			
 		}
+
+		.societe {
+			padding: 30px 0 0 55px;
+			color: #6d6d6d;
+			font-size: 0.9em;
+			text-align: right;
+			padding-right: 20px;
+			
+		}		
+		
     }
 }
 
@@ -468,23 +482,30 @@ button {
 
 
 #page1 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	background: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
 #page2 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	background: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
 #page3 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	background: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
 #page4 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	background: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
 #page5 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	background: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
 #page6 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	background: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
 #page7 {
-    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	background: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
