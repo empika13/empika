@@ -1,11 +1,12 @@
 /**** VARIABLES
 *******************************************************************************/
 @pageWidth: 900px;
-@rightColWidth: @pageWidth * 0.75;
+@rightColWidth: @pageWidth * 0.72;
 @leftColWidth: @pageWidth - @rightColWidth;
 
-@font-small: 1.1em;
-@font-normal: 1.2em;
+@font-verysmall: 1.1em;
+@font-small: 1.2em;
+@font-normal: 1.3em;
 
 @color: #525252;
 @error-color: darkred;
@@ -14,9 +15,11 @@
 @box-bgcolor: rgba(255, 255, 255, 0.6);
 
 @menu-selected-color: #FFF;
-@menu-selected-bgcolor: rgba(51, 51, 51, .8);
-@menu-over-color: #666666;
-@menu-over-bgcolor: rgba(51, 51, 51, .2);
+
+@menu-selected-bgcolor: rgba(34, 47, 81, 1);
+@menu-over-color: #FFF;
+@menu-over-bgcolor: rgba(34, 47, 81, .8);
+
 
 @base-img-url: "../img/";
 
@@ -29,7 +32,7 @@
 }
 
 .text-effect (@color: #FFF) {
-    text-shadow: 0px 1px 1px @color;
+    xtext-shadow: 0px 1px 1px @color;
 }
 
 .box-shadow () {
@@ -46,13 +49,19 @@
     transition-duration: 1s;
 }
 
+.text-subsub (@font-size: 1.4em) {
+    color: #9A1160;
+	font-weight: bold;
+    font-size: @font-size;
+}
+
 /**** COMMON
 *******************************************************************************/
 body {
     margin: 0;
     padding: 0;
     color: @color;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .clear {
@@ -117,7 +126,7 @@ button {
 
 .nivoSlider {
     position:relative;
-    width:640px; /* Change this to your images width */
+    width:613px; /* Change this to your images width */
     height:300px; /* Change this to your images height */
     background:url('@{base-img-url}loader.gif') no-repeat 50% 50%;
 }
@@ -146,13 +155,14 @@ button {
         z-index: 1;
 
         .logo {
-            padding: 50px 0 170px 35px;
+            padding: 10px 0 80px 30px;
         }
 
         .links {
             margin: 0 20px;
             .link {
-                padding: 5px 5px 5px 20px;
+
+                padding: 5px 5px 5px 35px;
                 border: 1px solid transparent;
                 .menu-transition;
                 a, a:visited {
@@ -161,20 +171,27 @@ button {
                     font-size: @font-small;
                     text-decoration: none;
                 }
+
+				a:hover {
+					color: #ACA185;
+					xbackground: url('@{base-img-url}rond.png') no-repeat scroll left transparent;
+				}
+
                 &:hover {
                     .text-effect;
                     background: @menu-over-bgcolor;
-/*                    border-left: 1px solid #EFEFEF;*/
-/*                    border-bottom: 1px solid #EFEFEF;*/
+                    xborder-left: 1px solid #EFEFEF;
+                   	xborder-bottom: 1px solid #EFEFEF;
                     a, a:visited {
                         color: @menu-over-color;
 /*                        .text-effect(@menu-selected-bgcolor);*/
                     }
                 }
+
                 &.selected {
                     background: @menu-selected-bgcolor;
-                    border-left: 1px solid #EFEFEF;
-                    border-bottom: 1px solid #EFEFEF;
+                    xborder-left: 1px solid #EFEFEF;
+                    xborder-bottom: 1px solid #EFEFEF;
                     a, a:visited {
                         color: @menu-selected-color;
                         .text-effect(@menu-selected-bgcolor);
@@ -182,7 +199,14 @@ button {
                 }
             }
         }
-
+		
+		.tel {
+			padding: 80px 0 0 55px;
+			color: #9A1160;
+			xfont-weight: bold;
+			font-size: 1.4em;
+			xtext-align: center;
+		}
     }
 }
 
@@ -241,7 +265,7 @@ button {
                         }
                         textarea {
                             width: 85%;
-                            height: 200px;
+                            height: 100px;
                             padding-left: 3px;
                         }
                         .msg {
@@ -282,22 +306,102 @@ button {
 
                 h2 {
                     margin: 0;
-                    font-size: 4em;
+                    font-size: 2.7em;
                     .text-effect;
-                    font-family: 'Yanone Kaffeesatz', sans-serif;
+                    font-family: 'Ubuntu', sans-serif;
+    				padding: 10px 0 0;
+					color: #222F51;
                 }
 
                 .subtitle {
-                    color: #636363;
-                    font-size: @font-small;
+                    color: #5B8A8A;
+                    font-size: 1.4em;
                     font-style: italic;
                     margin-bottom: 25px;
                     font-family: 'Volkhov', serif;
                 }
 
+				p {
+					text-align: justify;
+					font-size: @font-normal;
+					
+					.marge	{
+						margin-left: 45px;
+					}				
+				}
+				
+				.subsubtitle {
+					.text-subsub ;
+				}
+				
+				.horizontal-boxes { 	
+					width: @rightColWidth;
+                    position: relative;
+                    margin: 5px 0;
+                    table-layout: fixed;
+                    border-spacing: 10px 0;
+                    border-collapse: separate;
+					border-top: 1px dashed rgba(0, 0, 0, 0.4);
+					
+					td {
+                        padding: 10px;
+						font-size: @font-normal;
+						text-align: justify; 
+						.subsubtitle {
+							.text-subsub (1.1em);
+						}
+						.square {
+							list-style-type:square;
+							color: #ACA185;
+							font-size: 1em;
+							text-align: justify;
+							padding: 0 0 0 40px;
+							margin: 0;
+							xlist-style-image: url('@{base-img-url}rond-croix.png');
+						}
+						li span {
+							color: @color;
+						}
+						.subsubtitle {
+							.text-subsub (1.1em);
+							padding: 0 0 10px;
+							
+						}
+					}
+				}
+				
+				.square {
+					list-style-type:square;
+					color: #ACA185;
+					font-size: 1.2em;
+					text-align: justify;
+					padding: 0 0 0 40px;
+					margin: 0;
+					xlist-style-image: url('@{base-img-url}rond-croix.png');
+				}
+				
+				li span {
+					color: @color;
+				}
+
+				
+				.vert {
+					color: #ACA185;
+					font-weight: bold;
+				}
+				
+                .border {
+                    xheight: 130px !important;
+                    xwidth: 180px;
+                    .rounded-corners;
+                    .box-shadow;
+                    background: @box-bgcolor;
+                    padding: 20px 20px 20px 20px;
+                }				
+				
                 .carousel {
                     height: 300px !important;
-                    width: 640px;
+                    width: 613px;
                     .rounded-corners;
                     .box-shadow;
                     background: @box-bgcolor;
@@ -321,17 +425,32 @@ button {
                         h3 {
                             margin: 5px 0;
                             text-align: center;
+							color: #9A1160;
                         }
                         p {
-                            font-size: @font-small;
+                            font-size: @font-verysmall;
                             text-align: justify;
                         }
+
+						.square {
+							list-style-type:square;
+							color: #ACA185;
+							padding: 0 0 0 20px;
+							margin: 0;
+							xlist-style-image: url('@{base-img-url}rond-croix.png');
+						}
+
+						li span {
+							color: @color;
+						}
                         
                         .link {
                             text-align: right;
                             a {
-                                color: @color;
+                                color: #fff;
                                 text-decoration: none;
+								background-color: #222F51;
+								padding: 3px 4px 3px 4px;
                                 &:hover {
                                     text-decoration: underline;
                                 }
@@ -348,18 +467,24 @@ button {
 }
 
 
-#page1, #page2 {
-    background: url('@{base-img-url}33original.gif') repeat scroll 0 0 transparent;
+#page1 {
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
-/*#page2 {
-    background: #DDDDDD;
-}*/
+#page2 {
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+}
 #page3 {
-    background: #CCCCCC;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page4 {
-    background: #BBBBBB;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }
 #page5 {
-    background: #AAAAAA;
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+}
+#page6 {
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
+}
+#page7 {
+    background: url('../img/33original.gif') repeat scroll 0 0 transparent;
 }

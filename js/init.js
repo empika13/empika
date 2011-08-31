@@ -95,7 +95,8 @@ jQuery(function( $ ) {
     // setup carousel
     slider.nivoSlider({
         directionNav: false,
-        effect: 'sliceUpDown,sliceUpDownLeft,fold,boxRain,slideInRight'
+		effect: 'sliceUpDown,boxRain,boxRandom'
+        //effect: 'sliceUpDown,sliceUpDownLeft,fold,boxRain,boxRandom,slideInRight'
     });
 
     $(window).resize(function() {
