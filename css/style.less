@@ -1,8 +1,11 @@
 /**** VARIABLES
 *******************************************************************************/
-@pageWidth: 940px;
+@pageWidth: 650px;
+
+
 @rightColWidth: 650px;
 @leftColWidth: @pageWidth - @rightColWidth;
+
 
 @font-verysmall: 1.1em;
 @font-small: 1.2em;
@@ -160,28 +163,35 @@ button {
     display:block;
 }
 
+.wrapper {
+	overflow: hidden;
+}
 
 /**** MENU
 *******************************************************************************/
 .menu {
-    xmargin: 0 auto;
-    width: @pageWidth;
+	height: 190px;
+    width: 100%;
+	position: fixed;
+    top: 0;
+    z-index: 1000;
+	background: #323233;
     .menu-wrap {
-        width: 270px;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        z-index: 1;
-		background: #323233;
+		margin-left: auto;
+		margin-right: auto;
+        width: 650px;    
+		xbackground: #323233;
 
         .logo {
-            padding: 25px 0 80px 170px;
+            padding: 8px 0 0px 0px;
+			float: left;
         }
 
         .links {
-            margin: 0 20px;
+            margin: 0 0 0 40px;
+			float: right;
             .link {
-
+				
                 padding: 5px 5px 5px 35px;
 				text-align: right;
                 border: 1px solid transparent;
@@ -247,20 +257,35 @@ button {
 /**** CONTENT
 *******************************************************************************/
 .container {
+	
     width: 100%;
     height: 100%;
     overflow: hidden;
-    position: absolute;
-
+	position: absolute;
+	margin-top: 190px;
+	/*
+	overflow: hidden;
+    position: relative;
+	margin-top: 190px;
+	*/
+	
     .page {
         width: 100%;
-        height: 100%;
+		margin-left: auto;
+		margin-right: auto;
         overflow-x: hidden;
         overflow-y: auto;
         position: relative;
-
+		/*
+		width: 650px;
+		margin-left: auto;
+		margin-right: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+		*/
         .content {
-            xmargin: 0 auto;
+            margin: 0 auto;
             width: @pageWidth;
 
             .content-wrap {
