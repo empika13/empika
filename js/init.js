@@ -77,9 +77,10 @@ jQuery(function( $ ) {
     var container = $('.container');
 
     // set selected menu item
-    setSelectedMenuItem();
+    //setSelectedMenuItem();
 
     // setup animated anchor scroll
+	/*
     $('.menu, .container').localScroll({
         target: '.container',
         queue: true,
@@ -90,7 +91,7 @@ jQuery(function( $ ) {
             setSelectedMenuItem('#' + anchor.id);
             slider.data('nivo:vars').stop = anchor.id !== 'page1';
         }
-    });
+    });*/
 
     // setup carousel
     slider.nivoSlider({
@@ -99,6 +100,7 @@ jQuery(function( $ ) {
         //effect: 'sliceUpDown,sliceUpDownLeft,fold,boxRain,boxRandom,slideInRight'
     });
 
+	/*
     $(window).resize(function() {
         var height = $(window).height();
         $('.page', container).height(height);
@@ -107,6 +109,6 @@ jQuery(function( $ ) {
             queue: true,
             duration: 0
         });
-    });
+    });*/
 
 });
