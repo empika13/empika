@@ -1,24 +1,36 @@
 /**** VARIABLES
 *******************************************************************************/
-@pageWidth: 900px;
-@rightColWidth: @pageWidth * 0.75;
+@pageWidth: 940px;
+@rightColWidth: 650px;
 @leftColWidth: @pageWidth - @rightColWidth;
 
-@font-small: 1.1em;
-@font-normal: 1.2em;
+@font-verysmall: 1.1em;
+@font-small: 1.2em;
+@font-normal: 1.3em;
 
 @color: #525252;
 @error-color: darkred;
 @success-color: darkgreen;
 
-@box-bgcolor: rgba(255, 255, 255, 0.6);
+@box-bgcolor: rgba(246, 246, 246, 0.9);
 
-@menu-selected-color: #FFF;
-@menu-selected-bgcolor: rgba(51, 51, 51, .8);
-@menu-over-color: #666666;
-@menu-over-bgcolor: rgba(51, 51, 51, .2);
+@menu-selected-color: #323233;
+/*
+@menu-selected-bgcolor: rgba(34, 47, 81, 1);
+@menu-over-color: #FFF;
+@menu-over-bgcolor: rgba(34, 47, 81, .8);
+*/
+
+@menu-selected-bgcolor: rgba(255, 255, 255, 1);
+@menu-over-color: #FFF;
+@menu-over-bgcolor: rgba(255, 255, 255, .8);
 
 @base-img-url: "../img/";
+
+@font-face {  
+  font-family: Opal ;  
+  src: url( font/Opal.ttf ) format("truetype");  
+}
 
 /**** FUNCTIONS
 *******************************************************************************/
@@ -29,7 +41,7 @@
 }
 
 .text-effect (@color: #FFF) {
-    text-shadow: 0px 1px 1px @color;
+    xtext-shadow: 0px 1px 1px @color;
 }
 
 .box-shadow () {
@@ -46,17 +58,33 @@
     transition-duration: 1s;
 }
 
+.text-subsub (@font-size: 1.4em) {
+    color: #323233;
+	font-weight: bold;
+    font-size: @font-size;
+	font-family: 'Play', sans-serif;
+}
+
 /**** COMMON
 *******************************************************************************/
 body {
     margin: 0;
     padding: 0;
     color: @color;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .clear {
     clear: both;
+}
+
+a {
+	color: #F76919;
+	text-decoration: none;
+}
+a:hover {
+	color: #F76919;
+	text-decoration: underline;
 }
 
 button {
@@ -117,7 +145,7 @@ button {
 
 .nivoSlider {
     position:relative;
-    width:640px; /* Change this to your images width */
+    width:613px; /* Change this to your images width */
     height:300px; /* Change this to your images height */
     background:url('@{base-img-url}loader.gif') no-repeat 50% 50%;
 }
@@ -136,45 +164,55 @@ button {
 /**** MENU
 *******************************************************************************/
 .menu {
-    margin: 0 auto;
+    xmargin: 0 auto;
     width: @pageWidth;
     .menu-wrap {
-        width: @leftColWidth;
+        width: 270px;
         height: 100%;
         position: fixed;
         top: 0;
         z-index: 1;
+		background: #323233;
 
         .logo {
-            padding: 50px 0 170px 35px;
+            padding: 25px 0 80px 170px;
         }
 
         .links {
             margin: 0 20px;
             .link {
-                padding: 5px 5px 5px 20px;
+
+                padding: 5px 5px 5px 35px;
+				text-align: right;
                 border: 1px solid transparent;
                 .menu-transition;
                 a, a:visited {
                     .text-effect;
-                    color: @color;
+                    color: #c6c6c6;
                     font-size: @font-small;
                     text-decoration: none;
                 }
+
+				a:hover {
+					color: #ACA185;
+					xbackground: url('@{base-img-url}rond.png') no-repeat scroll left transparent;
+				}
+
                 &:hover {
                     .text-effect;
                     background: @menu-over-bgcolor;
-/*                    border-left: 1px solid #EFEFEF;*/
-/*                    border-bottom: 1px solid #EFEFEF;*/
+                    xborder-left: 1px solid #EFEFEF;
+                   	xborder-bottom: 1px solid #EFEFEF;
                     a, a:visited {
                         color: @menu-over-color;
 /*                        .text-effect(@menu-selected-bgcolor);*/
                     }
                 }
+
                 &.selected {
                     background: @menu-selected-bgcolor;
-                    border-left: 1px solid #EFEFEF;
-                    border-bottom: 1px solid #EFEFEF;
+                    xborder-left: 1px solid #EFEFEF;
+                    xborder-bottom: 1px solid #EFEFEF;
                     a, a:visited {
                         color: @menu-selected-color;
                         .text-effect(@menu-selected-bgcolor);
@@ -182,7 +220,26 @@ button {
                 }
             }
         }
+		
+		.tel {
+			padding: 60px 0 0 55px;
+			color: #FFF;
+			xfont-weight: bold;
+			font-size: 1.2em;
+			text-align: right;
+			padding-right: 20px;
+			
+		}
 
+		.societe {
+			padding: 30px 0 0 55px;
+			color: #6d6d6d;
+			font-size: 0.9em;
+			text-align: right;
+			padding-right: 20px;
+			
+		}		
+		
     }
 }
 
@@ -203,7 +260,7 @@ button {
         position: relative;
 
         .content {
-            margin: 0 auto;
+            xmargin: 0 auto;
             width: @pageWidth;
 
             .content-wrap {
@@ -212,11 +269,12 @@ button {
                 width: @rightColWidth;
 
                 form {
-                    .rounded-corners;
-                    .box-shadow;
+                    /*.rounded-corners;
+                    .box-shadow;*/
                     padding: 20px 20px 10px 20px;
                     background: @box-bgcolor;
-
+					border: 1px solid #eaeaea;
+					
                     .field {
                         padding: 10px;
                         label {
@@ -241,7 +299,7 @@ button {
                         }
                         textarea {
                             width: 85%;
-                            height: 200px;
+                            height: 100px;
                             padding-left: 3px;
                         }
                         .msg {
@@ -282,26 +340,128 @@ button {
 
                 h2 {
                     margin: 0;
-                    font-size: 4em;
+                    font-size: 3em;
                     .text-effect;
-                    font-family: 'Yanone Kaffeesatz', sans-serif;
+                    font-family: Gruppo, sans-serif;
+    				padding: 10px 0 0;
+					color: #323233;
                 }
 
                 .subtitle {
-                    color: #636363;
-                    font-size: @font-small;
+                    color: #AAA137;
+                    font-size: 1.4em;
                     font-style: italic;
                     margin-bottom: 25px;
                     font-family: 'Volkhov', serif;
                 }
 
+				p {
+					text-align: justify;
+					font-size: @font-normal;
+					
+					.marge	{
+						margin-left: 45px;
+					}				
+				}
+				
+				.subsubtitle {
+					.text-subsub ;
+				}
+				
+				.horizontal-boxes { 	
+					width: @rightColWidth;
+                    position: relative;
+                    margin: 5px 0;
+                    table-layout: fixed;
+                    border-spacing: 10px 0;
+                    border-collapse: separate;
+					border-top: 1px solid rgba(0, 0, 0, 0.1);
+					border-left: 1px solid rgba(0, 0, 0, 0.1);
+					border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+					border-right: 1px solid rgba(0, 0, 0, 0.2);
+					background: none repeat scroll 0 0 #EBEBEB;
+					
+					td {
+                        padding: 10px 0 10px 5px;
+						font-size: @font-normal;
+						text-align: justify; 
+						.subsubtitle {
+							.text-subsub (1.1em);
+						}
+						.square {
+							list-style-type:square;
+							color: #ACA185;
+							font-size: 1em;
+							text-align: justify;
+							padding: 0 0 0 40px;
+							margin: 0;
+							xlist-style-image: url('@{base-img-url}rond-croix.png');
+						}
+						li span {
+							color: @color;
+						}
+						.petit {
+							font-size: 0.9em;
+							color: #ACA185;
+						}
+						.subsubtitle {
+							.text-subsub (1.1em);
+							padding: 0 0 10px;
+							
+						}
+					}
+				}
+				
+				.square {
+					list-style-type:square;
+					color: #ACA185;
+					font-size: 1.2em;
+					text-align: justify;
+					padding: 0 0 0 40px;
+					margin: 0;
+					xlist-style-image: url('@{base-img-url}rond-croix.png');
+				}
+				
+				li span {
+					color: @color;
+				}
+
+				.desc {
+					font-size: 0.9em;
+					font-style: italic;
+					color: #737373;
+				}
+				
+				.vert {
+					color: #974267;
+					font-weight: bold;
+					font-size: 0.9em;
+				}
+				
+                .img-apps {
+                    height: 130px !important;
+                    width: 180px;
+					border: 1px solid #e3e3e3;
+                    background: @box-bgcolor;
+                    padding: 20px 20px 20px 20px;
+                }
+
+				.img-me {
+                    height: 250px !important;
+                    width: 200px;
+					border: 1px solid #e3e3e3;
+                    background: @box-bgcolor;
+                    padding: 20px 20px 20px 20px;
+                }
+				
                 .carousel {
                     height: 300px !important;
-                    width: 640px;
-                    .rounded-corners;
-                    .box-shadow;
+                    width: 613px;
+                    /*.rounded-corners;
+                    .box-shadow;*/
                     background: @box-bgcolor;
                     padding: 20px 20px 30px 20px;
+					border: 1px solid #e3e3e3;
                 }
 
                 .boxes {
@@ -315,23 +475,33 @@ button {
 
                     td {
                         padding: 10px;
-                        .rounded-corners;
-                        .box-shadow;
+                        /*.rounded-corners;
+                        .box-shadow;*/
                         background: @box-bgcolor;
+						border: 1px solid #e3e3e3;
                         h3 {
                             margin: 5px 0;
                             text-align: center;
+							color: #323233;
+							font-family: Play, sans-serif;
                         }
                         p {
-                            font-size: @font-small;
+                            font-size: @font-verysmall;
                             text-align: justify;
                         }
+
+
+						li span {
+							color: @color;
+						}
                         
                         .link {
                             text-align: right;
                             a {
-                                color: @color;
+                                color: #fff;
                                 text-decoration: none;
+								background-color: #323233;
+								padding: 3px 4px 3px 4px;
                                 &:hover {
                                     text-decoration: underline;
                                 }
@@ -348,18 +518,7 @@ button {
 }
 
 
-#page1, #page2 {
-    background: url('@{base-img-url}33original.gif') repeat scroll 0 0 transparent;
-}
-/*#page2 {
-    background: #DDDDDD;
-}*/
-#page3 {
-    background: #CCCCCC;
-}
-#page4 {
-    background: #BBBBBB;
-}
-#page5 {
-    background: #AAAAAA;
+#page1, #page2, #page3, #page4, #page5, #page6, #page7 {
+    xbackground: #FFF repeat scroll 0 0 transparent;
+	xbackground: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
 }
