@@ -1,6 +1,6 @@
 function setSelectedMenuItem(hash) {
     var href, idx = 0,
-        links = $('.links .link'),
+        links = $('ul.links li.link'),
         h = hash || window.location.hash;
     if (h) {
         for (var i = 0, l = links.length; i < l; i++) {
@@ -77,21 +77,22 @@ jQuery(function( $ ) {
     var container = $('.container');
 
     // set selected menu item
-    //setSelectedMenuItem();
+    setSelectedMenuItem();
 
     // setup animated anchor scroll
-	/*
+	
     $('.menu, .container').localScroll({
-        target: '.container',
+        target: 'body',
         queue: true,
         duration: 1000,
         hash: true,
+		offset:-85,
         onBefore: function(e, anchor, $target) {
             anchor.scrollTop = 0;
             setSelectedMenuItem('#' + anchor.id);
             slider.data('nivo:vars').stop = anchor.id !== 'page1';
         }
-    });*/
+    });
 
     // setup carousel
     slider.nivoSlider({
