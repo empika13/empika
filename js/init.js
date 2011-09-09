@@ -77,19 +77,19 @@ jQuery(function( $ ) {
     var container = $('.container');
 
     // set selected menu item
-    setSelectedMenuItem();
+    //setSelectedMenuItem();
 
     // setup animated anchor scroll
 	
-    $('.menu, .container').localScroll({
+    $('.menu, .container, .footer').localScroll({
         target: 'body',
         queue: true,
         duration: 1000,
         hash: true,
-		offset:-85,
+		offset:-50,
         onBefore: function(e, anchor, $target) {
             anchor.scrollTop = 0;
-            setSelectedMenuItem('#' + anchor.id);
+            //setSelectedMenuItem('#' + anchor.id);
             slider.data('nivo:vars').stop = anchor.id !== 'page1';
         }
     });

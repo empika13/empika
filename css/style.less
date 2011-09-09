@@ -1,6 +1,6 @@
 /**** VARIABLES
 *******************************************************************************/
-@pageWidth: 650px;
+@pageWidth: 800px;
 
 @rightColWidth: @pageWidth;
 @leftColWidth: @pageWidth - @rightColWidth;
@@ -119,8 +119,8 @@ button {
 
 .nivo-controlNav {
     height: 20px;
-    width: 100%;
-    margin-top: 300px;
+    width: 550px;
+    margin-top: 365px;
     position: absolute;
     text-align: center;
     a {
@@ -156,15 +156,11 @@ button {
     display:block;
 }
 
-.wrapper {
-	xoverflow: hidden;
-	xpadding: 190px 0 0 0;
-}
 
 /**** MENU
 *******************************************************************************/
 .menu {
-	height: 85px;
+	height: 75px;
     width: 100%;
 	position: fixed;
     top: 0;
@@ -177,25 +173,27 @@ button {
 		xbackground: #323233;
 
         .logo {
-            padding: 8px 20px 3px 0;
+            padding: 8px 0px 3px 0;
 			float: left;
 			xborder-right: 1px solid #FFF;
-			height: 74px;
-			width: 174px;
+			height: 60px;
+			width: 141px;
 			background: url('@{base-img-url}logo-horizontal.png') no-repeat;
         }
 
         ul.links {
-            margin: 18px 0 0;
+            margin: 2px 0 0;
+			padding: 0px;
 			float: right;
 			height: 30px;
-			width: 400px;
+			width: 546px;
 			line-height: 30px;
 			text-align: right;
+			border-bottom: 1px solid #FFFFFF;
 			
             li.link {
 				
-                padding: 5px 10px 2px 10px;
+                padding: 5px 3px 2px 3px;
 				text-align: right;
 				display: inline;
                 border: 1px solid transparent;
@@ -203,7 +201,7 @@ button {
                 a, a:visited {
                     .text-effect;
                     color: #c6c6c6;
-                    font-size: @font-small;
+                    font-size: @font-verysmall;
                     text-decoration: none;
                 }
 
@@ -261,7 +259,7 @@ button {
 /**** CONTENT
 *******************************************************************************/
 .container {
-	padding: 85px 0 0 0;
+	padding: 35px 0 0 0;
     width: 100%;
     height: 100%;
 	position: relative;
@@ -270,9 +268,11 @@ button {
         width: 100%;
 		margin-left: auto;
 		margin-right: auto;
+		margin-top: 1px;
         position: relative;
-    	border-bottom: 3px solid #E6E6E8;
-		padding: 10px 0 25px;
+    	border-bottom: 1px solid #E6E6E8;
+		border-top: 1px solid #E6E6E8;
+		padding: 35px 0 35px;
 		
         .content {
             margin: 0 auto;
@@ -284,8 +284,8 @@ button {
                     /*.rounded-corners;
                     .box-shadow;*/
                     padding: 20px 20px 10px 20px;
-                    background: @box-bgcolor;
-					border: 1px solid #eaeaea;
+                    xbackground: @box-bgcolor;
+					border-left: 1px solid #494949;
 					
                     .field {
                         padding: 10px;
@@ -356,7 +356,7 @@ button {
                     font-size: 3em;
                     .text-effect;
                     font-family: Gruppo, sans-serif;
-    				padding: 10px 0 0;
+    				xpadding: 10px 0 0;
 					color: #323233;
                 }
 
@@ -364,7 +364,7 @@ button {
                     color: #AAA137;
                     font-size: 1.4em;
                     font-style: italic;
-                    margin-bottom: 25px;
+                    margin: 0 0 18px 0;
                     font-family: 'Volkhov', serif;
                 }
 
@@ -381,6 +381,45 @@ button {
 					.text-subsub ;
 				}
 				
+				.vertical-boxes { 
+					width: @rightColWidth + 25px;
+                    left: -10px;
+                    position: relative;
+                    margin: 10px 0 10px 0;
+                    table-layout: fixed;
+                    border-spacing: 10px 0;
+                    border-collapse: separate;
+					tr {
+						margin-bottom: 20px;
+					}
+					td {
+						padding: 10px;
+                        .box-shadow;
+						border-top: 1px solid rgba(0, 0, 0, 0.1);
+						border-left: 1px solid rgba(0, 0, 0, 0.1);
+						border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+						border-right: 1px solid rgba(0, 0, 0, 0.2);
+						
+						.subsub {
+							.text-subsub (1.3em);
+							padding: 2px 10px 2px 10px;
+							background: #323233;
+							color: #FFF;
+							.rounded-corners;
+						}
+						
+						.subsubtitle {
+							.text-subsub;
+							padding: 0 0 10px;							
+						}
+						
+						p {
+                            font-size: @font-normal;
+                            text-align: justify;
+                        }
+					}
+				}
+				
 				.horizontal-boxes { 	
 					width: @rightColWidth;
 					.box-shadow;
@@ -393,16 +432,12 @@ button {
 					border-left: 1px solid rgba(0, 0, 0, 0.1);
 					border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 					border-right: 1px solid rgba(0, 0, 0, 0.2);
-					xbackground: none repeat scroll 0 0 #EBEBEB;
 					
 					td {
                         padding: 10px 0 10px 5px;
 						font-size: @font-normal;
 						text-align: justify; 
 						
-						.subsubtitle {
-							.text-subsub (1.1em);
-						}
 						.square {
 							list-style-type:square;
 							color: #ACA185;
@@ -421,8 +456,7 @@ button {
 						}
 						.subsubtitle {
 							.text-subsub (1.1em);
-							padding: 0 0 10px;
-							
+							padding: 0 0 10px;	
 						}
 					}
 				}
@@ -448,9 +482,14 @@ button {
 				}
 				
 				.vert {
+					color: #E40000;
+					font-weight: bold;
+					font-size: 1.6em;
+				}
+				
+				.surligne {
 					color: #974267;
 					font-weight: bold;
-					font-size: 0.9em;
 				}
 				
                 .img-apps {
@@ -470,41 +509,68 @@ button {
                 }
 				
                 .carousel {
-                    height: 300px !important;
-                    width: 613px;
+					height: 365px !important;
+                    width: 550px;
                     /*.rounded-corners;
                     .box-shadow;*/
                     background: @box-bgcolor;
                     padding: 20px 20px 30px 20px;
 					border: 1px solid #e3e3e3;
+					float: left;
                 }
 
+                .cerveau {
+					height: 300px !important;
+                    width: 490px;
+                    /*.rounded-corners;
+                    .box-shadow;*/
+                    background: @box-bgcolor;
+                    padding: 19px;
+					border: 1px solid #e3e3e3;
+					float: right;
+					margin: 15px 0px 15px 15px;
+                }
+				
                 .boxes {
+					width: 207px;
+					height: 405px;
+					border-top: 1px solid #e3e3e3;
+					border-right: 1px solid #e3e3e3;
+					border-bottom: 1px solid #e3e3e3;
+					float: right;
+                    table-layout: fixed;
+					background: @box-bgcolor;
+					padding-top: 10px;
+					/*
                     width: @rightColWidth + 25px;
                     left: -10px;
                     position: relative;
-                    margin: 20px 0;
+                    margin: 10px 0;
                     table-layout: fixed;
                     border-spacing: 10px 0;
                     border-collapse: separate;
-
+					*/
                     td {
-                        padding: 10px;
+                        padding: 10px 10px 0 10px;
                         /*.rounded-corners;
                         .box-shadow;*/
-                        background: @box-bgcolor;
-						border: 1px solid #e3e3e3;
                         h3 {
-                            margin: 5px 0;
-                            text-align: center;
-							color: #323233;
+							font-size: 1.4em;
+							margin: 0;
+							color: #974267;
 							font-family: Play, sans-serif;
                         }
                         p {
                             font-size: @font-verysmall;
                             text-align: justify;
+							margin-bottom: 0;
                         }
-
+						.separation {
+							width: 90%;
+							border-bottom: 1px solid #e3e3e3;
+							margin: 0 auto;
+							padding: 8px 0 10px 0;
+						}
 
 						li span {
 							color: @color;
@@ -512,11 +578,13 @@ button {
                         
                         .link {
                             text-align: right;
+							margin: 10px 0 0 0;
                             a {
                                 color: #fff;
                                 text-decoration: none;
 								background-color: #323233;
 								padding: 3px 4px 3px 4px;
+								.rounded-corners;
                                 &:hover {
                                     text-decoration: underline;
                                 }
@@ -535,20 +603,58 @@ button {
 .footer {
 	color: #FFF;
 	background: #323233;
+	padding-bottom: 300px;
 	
 	.footer-wrap {
 		margin: 0 auto;
 		width: @pageWidth;
-		padding: 20px 0 60px 0px;
+		padding: 10px 0 60px 0px;
 		text-align: center;
+		border-top: 1px solid #494949;
+		color: #626262;
 	}
+	
+	a {
+		color: #626262;
+	}
+	
 }
 
 #page1 {
-    background: url('@{base-img-url}04original.gif') repeat scroll 0 0 transparent;
+	padding-bottom: 80px;
 }
 
-#page1, #page2, #page3, #page4, #page5, #page6, #page7 {
-    xbackground: #FFF repeat scroll 0 0 transparent;
-	xbackground: url('@{base-img-url}bg_bleu.png') repeat-y 0 0;
+#page7 {
+    background: #323233;
+	color: #FFF;
+	border-bottom: none;
+	border-top: 7px solid #4D4D4D;
+
+	h2 {
+		color: #FFF;
+	}
+	.subtitle {
+		color: #cccccc;
+	}
+	.subsubtitle {
+		color: #FFF;
+	}
+	p {
+		color: #cccccc;
+		margin: 8px 0 25px 0px;
+	}
+	.contact-boxes {
+		width: 100%;
+        position: relative;
+        margin: 10px 0;
+        table-layout: fixed;
+        xborder-spacing: 10px 0;
+        xborder-collapse: separate;
+		
+		td {
+			padding: 10px 10px 10px 5px;
+			xfont-size: @font-normal;
+			text-align: justify;
+		}
+	}
 }
